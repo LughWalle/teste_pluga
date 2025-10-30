@@ -1,4 +1,5 @@
 export { SearchBar } from './SearchBar'
 export { CardGrid } from './CardGrid'
 export { AppCard } from './AppCard'
-
+export { Modal } from './Modal'
+export { Pagination } from './Pagination'
