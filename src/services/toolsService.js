@@ -1,8 +1,6 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
 
-dotenv.config()
-const TOOLS_URL = process.env.URL_PLUGA_TOOLS
+const TOOLS_URL = process.env.REACT_APP_URL_PLUGA_TOOLS
 
 export const fetchTools = async () => {
   try {
