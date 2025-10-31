@@ -1,0 +1,134 @@
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  gap: 1.5rem;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5.5rem;
+  padding-inline: 3rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.details {
+  text-align: center;
+  h2 {
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 1rem;
+    backGround-color: #dadada;
+    margin: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;  
+  }
+  
+  .button {
+    border: none;
+    background: #4f46e5;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+  }
+  
+  .button:hover {
+    background: #3730a3;
+  }
+}
+
+
+.lastViewed {
+  margin-top: 1rem;
+}
+
+.lastViewed h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.list {
+  display: flex;
+  gap: 3rem;
+}
+
+.item {
+  text-align: center;
+  p {
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 0 1rem;
+    backGround-color: #dadada;
+    margin: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333;  
+  }
+}
+
+.itemLogo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #f5f5f5;
+  margin-bottom: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

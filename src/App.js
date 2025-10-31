@@ -30,7 +30,7 @@ function App() {
   const openModal = (app) => {
     setSelected(app);
     setModalOpen(true);
-    pushLastViewed({ id: app.id || app.name, name: app.name, link: app.link || app.url, logo: app.logo });
+    pushLastViewed({ id: app.app_id, name: app.name, link: app.link, icon: app.icon, color: app.color });
   }
 
   return (

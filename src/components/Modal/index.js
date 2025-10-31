@@ -1,26 +1,44 @@
-import RCModal from 'react-modal';
+import ReactModal from "react-modal";
+import styles from "./style.module.css";
 
 export const Modal = ({ isOpen, onRequestClose, app, lastViewed }) => {
   if (!app) return null;
-  console.log('Modal renderizado:', isOpen);
-  return (
-    <RCModal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel={`${app.name} detalhes`}>
-      <button onClick={onRequestClose} aria-label="Fechar">Fechar</button>
-      <h2>{app.name}</h2>
-      <img src={app.logo} alt="" style={{height: 60}}/>
-      <p>{app.description}</p>
-      <a href={app.link || app.url} target="_blank" rel="noopener noreferrer">Ver no site da Pluga</a>
 
-      <section>
-        <h3>Últimas ferramentas visualizadas</h3>
-        <ul>
-          {lastViewed.slice(0,3).map(t => (
-            <li key={t.id || t.name}>
-              {t.name}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </RCModal>
+  return (
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className={styles.modal}
+      overlayClassName={styles.overlay}
+    >
+      <button className={styles.close} onClick={onRequestClose}>×</button>
+
+      <div className={styles.content}>
+        <div className={styles.mainInfo}>
+          <img src={app.icon} alt={app.name} className={styles.logo} style={{
+            backgroundColor: app.color
+          }} />
+          <div className={styles.details}>
+            <h2>{app.name}</h2>
+
+            <button onClick={() => window.open(app.link, "_blank")} className={styles.button}>
+              Acessar
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.lastViewed}>
+          <h3>Últimas ferramentas visualizadas</h3>
+          <div className={styles.list}>
+            {lastViewed?.slice(1, 4).map((tool, i) => (
+              <div key={i} className={styles.item}>
+                <img src={tool.icon} alt={tool.name} style={{ backgroundColor: tool.color || '#ccc' }} className={styles.itemLogo} />
+                <p>{tool.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </ReactModal>
   );
 }
