@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchTools } from './toolsService';
+import { fetchTools } from '../services/toolsService';
 
 jest.mock('axios');
 

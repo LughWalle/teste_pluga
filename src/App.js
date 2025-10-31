@@ -1,12 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { CardGrid, Modal, Pagination, SearchBar } from './components';
 import useFetchTools from './hooks/useFetchTools';
 import { useLastViewed } from './hooks/useLastViewer';
 import ReactModal from 'react-modal';
-
-
-ReactModal.setAppElement('#root')
 
 function App() {
   const PAGE_SIZE = 12;
@@ -17,6 +14,10 @@ function App() {
 
   const { lastViewed, pushLastViewed } = useLastViewed()
   const { tools, loading, error } = useFetchTools();
+
+  useEffect(() => {
+    ReactModal.setAppElement('#root');
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

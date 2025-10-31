@@ -1,6 +1,5 @@
 import styles from './style.module.css'
 export const AppCard = ({ app, onOpen }) => {
-  console.log(app)
   return (
     <div
       role="button"
