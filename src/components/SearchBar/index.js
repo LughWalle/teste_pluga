@@ -1,11 +1,17 @@
-export const SearchBar = ({ value, onChange, placeholder = "Buscar apps..." }) => {
+import styles from './style.module.css'
+import lupaIcon from '../../assets/searchIcon.svg'
+
+export const SearchBar = ({ value, onChange }) => {
   return (
-    <input
-      aria-label="Buscar apps"
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      placeholder={placeholder}
-      className='search'
-    />
+    <div className={styles.container}>
+      <img src={lupaIcon} alt="Buscar" className={styles.icon} />
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Buscar ferramenta"
+        className={styles.input}
+      />
+    </div>
   );
-}
+};

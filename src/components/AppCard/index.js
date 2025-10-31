@@ -1,5 +1,6 @@
 import styles from './style.module.css'
 export const AppCard = ({ app, onOpen }) => {
+  console.log(app)
   return (
     <div
       role="button"
@@ -7,10 +8,14 @@ export const AppCard = ({ app, onOpen }) => {
       onClick={() => onOpen(app)}
       onKeyDown={(e) => e.key === 'Enter' && onOpen(app)}
       className={styles.card}
+      style={{
+        backgroundColor: app.color
+      }}
     >
-      <img src={app.icon} alt={`${app.name} logo`} style={{ height: 48, objectFit: 'contain' }} />
-      <h3 style={{ margin: 0, fontSize: 14 }}>{app.name}</h3>
-      <p style={{ margin: 0, fontSize: 12, color: '#555' }}>{app.summary || app.description}</p>
+      <img src={app.icon} alt={`${app.name} logo`} className={styles.logo} />
+      <div className={styles.name}>
+        <h3>{app.name}</h3>
+      </div>
     </div>
   );
 }

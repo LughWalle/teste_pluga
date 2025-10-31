@@ -2,6 +2,7 @@ import RCModal from 'react-modal';
 
 export const Modal = ({ isOpen, onRequestClose, app, lastViewed }) => {
   if (!app) return null;
+  console.log('Modal renderizado:', isOpen);
   return (
     <RCModal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel={`${app.name} detalhes`}>
       <button onClick={onRequestClose} aria-label="Fechar">Fechar</button>

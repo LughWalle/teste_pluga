@@ -3,12 +3,16 @@ import './App.css';
 import { CardGrid, Modal, Pagination, SearchBar } from './components';
 import useFetchTools from './hooks/useFetchTools';
 import { useLastViewed } from './hooks/useLastViewer';
+import ReactModal from 'react-modal';
+
+
+ReactModal.setAppElement('#root')
 
 function App() {
   const PAGE_SIZE = 12;
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(1)
-  const [modalOpen, setModalOpen] = useState(null)
+  const [modalOpen, setModalOpen] = useState(true)
   const [selected, setSelected] = useState(null)
 
   const { lastViewed, pushLastViewed } = useLastViewed()
@@ -31,13 +35,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pluga App</h1>
       <SearchBar value={query} onChange={val => { setQuery(val); setPage(1); }} />
-      {loading && <div>Carregando...</div>}
       {error && <div>Erro ao carregar ferramentas.</div>}
-      {!loading && !error && (
+      {!error && (
         <>
-          <CardGrid items={pageItems} onOpen={openModal}/>
+          <CardGrid items={pageItems} onOpen={openModal} loading={loading}/>
           <div style={{ marginTop: 16 }}>
             <Pagination page={page} totalPages={totalPages} onChange={setPage} />
           </div>
