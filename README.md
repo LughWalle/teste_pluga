@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# pluga (Desafio Pluga)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação React (Create React App) usada para o desafio júnior da Pluga. Abaixo estão as instruções básicas para rodar o projeto localmente, executar testes e construir a versão de produção.
 
-## Available Scripts
+## Pré-requisitos
 
-In the project directory, you can run:
+- Node.js (recomendado >= 16) e npm
+- Navegador moderno (Chrome, Firefox, Edge)
 
-### `npm start`
+Verifique as versões instaladas:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+node -v
+npm -v
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalação
 
-### `npm test`
+1. Abra o terminal na pasta do projeto `teste_pluga/`.
+2. Instale as dependências:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+## Executando em desenvolvimento
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Isto inicia o servidor de desenvolvimento e abre a aplicação em `http://localhost:3000` (por padrão). O servidor recarrega automaticamente ao salvar alterações.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Executando os testes
 
-### `npm run eject`
+O projeto usa Jest + Testing Library. Para executar todos os testes:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm test
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para rodar um teste específico uma vez (sem modo watch):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm test -- src/__tests__/Modal.test.js --watchAll=false
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Build para produção
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O resultado será gerado na pasta `build/`.
 
-### Code Splitting
+## Variáveis de ambiente
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Crie um arquivo `.env` na raiz do diretório `test_pluga/` com as variáveis necessárias. Exemplo:
 
-### Analyzing the Bundle Size
+```
+REACT_APP_STORAGE_KEY=pluga:lastViewed
+REACT_APP_API_URL=https://api.exemplo.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# api esta fornecida no documento de descrição do teste
+```
 
-### Making a Progressive Web App
+## Problemas conhecidos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Caso veja alertas sobre `The resource was preloaded using link preload but not used...` é um warning que a propria api esta mandando, mas não interfere com o projeto.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
